@@ -5,10 +5,10 @@ import firebase from 'firebase/app';
 
 const ProviderBlock = () => {
   const [isConnected, setIsConnected] = useState({
-    'google.com': auth.currentUser.providerData.some(
+    'google.com': auth.currentUser?.providerData?.some(
       data => data.providerId === 'google.com'
     ),
-    'facebook.com': auth.currentUser.providerData.some(
+    'facebook.com': auth.currentUser?.providerData?.some(
       data => data.providerId === 'facebook.com'
     ),
   });
@@ -73,20 +73,18 @@ const ProviderBlock = () => {
         </Tag>
       )}
 
-      {!isConnected['google.com'] && (
-        <div className="mt-2">
+      <div className="mt-2">
+        {!isConnected['google.com'] && (
           <Button block color="blue" onClick={linkGoogle}>
             <Icon icon="google" /> Link to Google
           </Button>
-        </div>
-      )}
-      {!isConnected['facebook.com'] && (
-        <div className="mt-2">
+        )}
+        {!isConnected['facebook.com'] && (
           <Button block color="green" onClick={linkFacebook}>
             <Icon icon="facebook" /> Link to Facebook
           </Button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
