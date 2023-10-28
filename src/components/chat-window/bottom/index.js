@@ -1,5 +1,5 @@
-const ChatBottom = () => {
-  return <div>ChatBottom</div>;
+const Bottom = () => {
+  return <div>Bottom</div>;
 };
 
-export default ChatBottom;
+export default Bottom;
