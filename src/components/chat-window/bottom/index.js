@@ -51,6 +51,7 @@ const Bottom = () => {
 
     try {
       await database.ref().update(updates);
+
       setInput('');
       setIsLoading(false);
     } catch (error) {
