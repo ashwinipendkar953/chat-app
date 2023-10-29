@@ -8,6 +8,7 @@ import { useCurrentRoom } from '../../../context/current-room.context';
 import { memo } from 'react';
 import { auth } from '../../../misc/firebase';
 import { useHover } from '@uidotdev/usehooks';
+import IconBtnControl from './IconBtnControl';
 
 const MessageItem = ({ message, handleAdmin }) => {
   const { author, createdAt, text } = message;
@@ -20,6 +21,8 @@ const MessageItem = ({ message, handleAdmin }) => {
   const isMsgAuthorAdmin = admins.includes(author.uid);
   const isAuthor = auth.currentUser.uid === author.uid;
   const canGrantAdmin = isAdmin || isAuthor;
+
+  const isColor = false;
 
   return (
     <li
@@ -52,6 +55,15 @@ const MessageItem = ({ message, handleAdmin }) => {
         <TimeAgo
           datetime={createdAt}
           className="font-normal text-black-45 ml-2"
+        />
+
+        <IconBtnControl
+          {...(!isColor ? { color: 'red' } : {})}
+          isVisible
+          iconName="heart"
+          tooltip="Like this message"
+          onClick={() => {}}
+          badgeContent={5}
         />
       </div>
       <div>
