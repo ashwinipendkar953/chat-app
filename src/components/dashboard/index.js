@@ -8,6 +8,7 @@ import { getUserUpdates } from '../../misc/helpers';
 
 const Dashboard = ({ onSignOut }) => {
   const { profile } = useProfile();
+
   const onSave = async newData => {
     try {
       const updates = await getUserUpdates(
@@ -19,7 +20,7 @@ const Dashboard = ({ onSignOut }) => {
 
       await database.ref().update(updates);
 
-      Alert.success('Nickname has been updated');
+      Alert.success('Nickname has been updated', 4000);
     } catch (error) {
       Alert.error(error.message, 4000);
     }

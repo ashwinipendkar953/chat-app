@@ -4,10 +4,7 @@ import ChatTop from '../../components/chat-window/top';
 import ChatBottom from '../../components/chat-window/bottom';
 import { useRooms } from '../../context/rooms.context';
 import { Loader } from 'rsuite';
-import {
-  CurrentRoomProvider,
-  useCurrentRoom,
-} from '../../context/current-room.context';
+import { CurrentRoomProvider } from '../../context/current-room.context';
 import { transformToArr } from '../../misc/helpers';
 import { auth } from '../../misc/firebase';
 

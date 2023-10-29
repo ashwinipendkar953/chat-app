@@ -23,9 +23,9 @@ const Messages = () => {
       });
 
     return () => {
-      messages.ref('value');
+      messagesRef.off('value');
     };
-  }, []);
+  }, [chatId]);
 
   return (
     <ul className="msg-list custom-scroll">
